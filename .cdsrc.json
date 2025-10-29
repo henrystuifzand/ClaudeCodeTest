@@ -1,0 +1,16 @@
+{
+  "requires": {
+    "db": {
+      "kind": "sqlite",
+      "credentials": {
+        "database": "db.sqlite"
+      }
+    }
+  },
+  "odata": {
+    "version": "v4"
+  },
+  "features": {
+    "fetch_csrf": true
+  }
+}

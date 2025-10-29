@@ -1,0 +1,41 @@
+{
+  "name": "starwars-cap-app",
+  "version": "1.0.0",
+  "description": "Star Wars Films Application using SAP Cloud Application Programming Model",
+  "main": "server.js",
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds watch",
+    "build": "cds build",
+    "deploy": "cds deploy"
+  },
+  "keywords": [
+    "SAP CAP",
+    "Star Wars",
+    "SWAPI",
+    "Fiori Elements"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sap/cds": "^8.0.0",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@sap/cds-dk": "^8.0.0",
+    "sqlite3": "^5.1.7"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": "db.sqlite"
+        }
+      }
+    },
+    "odata": {
+      "version": "v4"
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "starwars.films",
+    "type": "application",
+    "title": "Star Wars Films",
+    "description": "Browse Star Wars Films and Related Data",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/star-wars-service/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.120.0",
+      "libs": {
+        "sap.fe.templates": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      },
+      "": {
+        "dataSource": "mainService",
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "FilmsList",
+          "target": "FilmsList"
+        },
+        {
+          "pattern": "Films({key}):?query:",
+          "name": "FilmsDetail",
+          "target": "FilmsDetail"
+        }
+      ],
+      "targets": {
+        "FilmsList": {
+          "type": "Component",
+          "id": "FilmsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Films",
+              "variantManagement": "Page",
+              "navigation": {
+                "Films": {
+                  "detail": {
+                    "route": "FilmsDetail"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "FilmsDetail": {
+          "type": "Component",
+          "id": "FilmsDetail",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/Films",
+              "navigation": {}
+            }
+          }
+        }
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    }
+  }
+}
