@@ -1,0 +1,100 @@
+.resource-list-container {
+  width: 100%;
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.resource-card {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #444;
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.resource-card:hover {
+  border-color: #ffd700;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+}
+
+.resource-name {
+  color: #ffd700;
+  font-size: 1.4rem;
+  margin: 0 0 1rem 0;
+  font-weight: bold;
+}
+
+.resource-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.resource-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #333;
+}
+
+.field-label {
+  color: #888;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.field-value {
+  color: #fff;
+  font-size: 0.95rem;
+  text-align: right;
+  max-width: 60%;
+  word-break: break-word;
+}
+
+.unknown-value {
+  color: #666;
+  font-style: italic;
+}
+
+.additional-fields {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #ffd700;
+}
+
+.expand-hint {
+  text-align: center;
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.resource-card:hover .expand-hint {
+  color: #ffd700;
+}
+
+.no-resources {
+  text-align: center;
+  padding: 3rem;
+  color: #888;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field-value {
+    max-width: 50%;
+  }
+}
